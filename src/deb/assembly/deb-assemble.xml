@@ -1,0 +1,38 @@
+<assembly>
+	<id>linux</id>
+	<formats>
+		<format>dir</format>
+	</formats>
+	<fileSets>
+		<fileSet>
+			<directory>src/deb/etc</directory>
+			<outputDirectory>${deb.so.dir}</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>conf</directory>
+			<outputDirectory>${deb.props.dir}/conf</outputDirectory>
+		</fileSet>
+	</fileSets>
+	<files>
+		<file>
+			<source>src/wrapper/wrapper.conf</source>
+			<outputDirectory>${deb.props.dir}</outputDirectory>
+			<filtered>true</filtered>
+		</file>
+		<file>
+			<source>src/deb/init.d/worthroomd</source>
+			<outputDirectory>${deb.init.d.dir}</outputDirectory>
+			<filtered>true</filtered>
+		</file>
+		<file>
+			<source>resources/conf/log4j.xml</source>
+			<outputDirectory>${deb.props.dir}/conf</outputDirectory>
+			<filtered>true</filtered>
+		</file>
+	</files>
+
+	<componentDescriptors>
+		<componentDescriptor>src/deb/assembly/structure-assembly-component.xml
+		</componentDescriptor>
+	</componentDescriptors>
+</assembly>

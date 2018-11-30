@@ -1,0 +1,8 @@
+Package: [[deb.package.name]]
+Version: [[version]]
+Section: misc
+Priority: low
+Architecture: all
+Description: [[description]]
+Maintainer: ashish.gupta2@barco.com
+Depends: default-jre | java6-runtime | openjdk-8-jre-headless

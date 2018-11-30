@@ -1,0 +1,12 @@
+#!/bin/sh
+# postrm script for audio management suite
+#
+# see: dh_installdeb(1)
+set -e
+if [ -d "[[deb.template.log.parent]]" ]; then
+   	echo "Remove logs ..."
+ 	rm -r [[deb.template.log.parent]]
+ 	rm -rf [[deb.control.dir]] 	
+fi
+exit 0
+

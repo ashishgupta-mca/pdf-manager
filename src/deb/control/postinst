@@ -1,0 +1,29 @@
+#!/bin/bash
+# postinst script for audio management suite
+#
+# see: dh_installdeb(1)
+set -e
+# summary of how this script can be called:
+#        * <postinst> `configure' <most-recently-configured-version>
+#        * <old-postinst> `abort-upgrade' <new version>
+#        * <conflictor's-postinst> `abort-remove' `in-favour' <package>
+#          <new-version>
+#        * <postinst> `abort-remove'
+#        * <deconfigured's-postinst> `abort-deconfigure' `in-favour'
+#          <failed-install-package> <version> `removing'
+#          <conflicting-package> <version>
+# for details, see http://www.debian.org/doc/debian-policy/ or
+# the debian-policy package
+echo "Create links..."
+chmod +x [[deb.init.d.dir]]/[[script-file]]
+chmod -R 777 [[deb.template.log]]
+chmod -R 777 [[deb.props.config.dir]]
+
+insserv [[deb.init.d.dir]]/[[script-file]]
+echo "Worthroom installation done."
+
+echo "Start worthroom suite..."
+[[deb.init.d.dir]]/[[script-file]] start
+echo "Service started."
+echo "worthroom suite running successfully." 	
+exit 0

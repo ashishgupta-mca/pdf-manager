@@ -1,0 +1,39 @@
+<component>
+	<dependencySets>
+		<dependencySet>
+			<outputDirectory>${deb.control.lib.dir}</outputDirectory>
+			<unpack>false</unpack>
+			<scope>runtime</scope>
+		</dependencySet>
+	</dependencySets>
+	<fileSets>
+		<!-- just 'touch' the directories -->
+		<fileSet>
+			<directory>.</directory>
+			<excludes>
+				<exclude>**/*</exclude>
+			</excludes>
+			<outputDirectory>${deb.template.log}</outputDirectory>
+		</fileSet>
+		<!-- all builded jars copy to lib -->
+		<fileSet>
+			<directory>target</directory>
+			<outputDirectory>${deb.control.lib.dir}</outputDirectory>
+			<includes>
+				<include>*.jar</include>
+			</includes>
+		</fileSet>
+
+		<!-- other stuff for lib -->
+		<fileSet>
+			<directory>${project.basedir}/../resources/lib
+			</directory>
+			<outputDirectory>${deb.control.lib.dir}</outputDirectory>
+		</fileSet>
+		<fileSet>
+			<directory>resources/lib
+			</directory>
+			<outputDirectory>${deb.control.lib.dir}</outputDirectory>
+		</fileSet>
+	</fileSets>
+</component>

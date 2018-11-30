@@ -1,0 +1,9 @@
+#!/bin/sh
+# prerev script for audio management suite
+#
+# see: dh_installdeb(1)
+set -e
+ echo "Stop service & remove links ..."
+ [[deb.init.d.dir]]/[[script-file]] stop
+ find -L /etc/rc?.d -samefile [[deb.init.d.dir]]/[[script-file]] -delete
+exit 0
